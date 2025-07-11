@@ -16,7 +16,7 @@ This lightweight Chrome extension displays the **creation date** of any public G
 
 ## 🧪 Demo
 
-![screenshot](screenshot.png)
+![screenshot](public/screenshot.png)
 
 ---
 
