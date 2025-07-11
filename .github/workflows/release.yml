@@ -1,0 +1,35 @@
+name: Auto Release Gitdate Extension
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    name: Release Gitdate ZIP
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Extract version from tag
+        id: get_version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
+
+      - name: Create ZIP package
+        run: |
+          mkdir -p dist
+          ZIP_NAME="Gitdate-v${VERSION}.zip"
+          zip -r "dist/$ZIP_NAME" . \
+            -x "*.git*" "dist/*" ".github/*" "*.DS_Store"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Gitdate v${{ env.VERSION }}
+          tag_name: v${{ env.VERSION }}
+          files: dist/Gitdate-v${{ env.VERSION }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

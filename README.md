@@ -20,83 +20,40 @@ This lightweight Chrome extension displays the **creation date** of any public G
 
 ---
 
-## 🚀 Installation (Manual)
+## 🚀 Installation
 
-You can install the extension manually in your browser:
+### Option 1: Download from Releases (Recommended)
 
-1. **Download or clone this repository**  
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/github-repo-created-date.git
-````
+1. **Go to the [Releases page](https://github.com/qubydev/Gitdate/releases)**
 
-2. **Open Chrome and go to** `chrome://extensions/`
+2. **Download the latest `Gitdate-v*.zip`** file from the latest release
 
-3. **Enable** "Developer Mode" (top-right)
+3. **Extract the ZIP file** to a folder on your computer
 
-4. Click **"Load unpacked"** and select the extension folder you downloaded
+4. **Open Chrome and go to** <a href="chrome://extensions/">chrome://extensions/</a>
+
+5. **Enable** "Developer Mode" (top-right toggle)
+
+6. Click **"Load unpacked"** and select the extracted extension folder
+
+### Option 2: Clone from Source
+
+1. **Clone this repository**  
+
+```bash
+git clone https://github.com/qubydev/Gitdate.git
+```
+
+2. **Open Chrome and go to** <a href="chrome://extensions/">chrome://extensions/</a>
+
+3. **Enable** "Developer Mode" (top-right toggle)
+
+4. Click **"Load unpacked"** and select the cloned extension folder
 
 The creation date will now show on GitHub repository pages in the sidebar.
 
----
+Super Light-weight, no tracking, no analytics, no background scripts.
 
-## 📦 Auto-Releases
-
-This repository is configured with **GitHub Actions** to automatically build and publish new releases whenever a version tag is pushed.
-
-### 🔁 How it works:
-
-* When you push a tag like `v1.0.0`, the action:
-
-  * Packages the extension into a `.zip`
-  * Creates a GitHub release with that version
-  * Attaches the `.zip` as a downloadable asset
-
-### 🏷️ To trigger a release:
-
-```bash
-git tag v1.0.0
-git push origin v1.0.0
-```
-
-The release will appear under [Releases](https://github.com/YOUR_USERNAME/github-repo-created-date/releases) with the extension `.zip`.
-
----
-
-## 📁 Project Structure
-
-```
-📦 github-repo-created-date/
-├── content.js           # Main script that runs on GitHub pages
-├── manifest.json        # Chrome extension metadata
-├── icons/               # Folder with 16x16, 48x48, and 128x128 icons
-├── .github/workflows/   # GitHub Actions for auto-releasing
-│   └── release.yml
-└── README.md
-```
-
----
-
-## 🛠️ Developer Notes
-
-* Uses GitHub's public REST API:
-  `https://api.github.com/repos/:owner/:repo`
-* Injects a `<p>` with an SVG calendar icon + creation date after the first sidebar `<p>` element
-
----
-
-## 🔐 Permissions
-
-The extension only runs on `https://github.com/*/*` pages and uses `activeTab` and `scripting` to inject its content.
-
-No tracking, no analytics, no background scripts.
-
----
-
-## 📄 License
-
-MIT License
-
----
 
 ## 🤝 Contribute
 
