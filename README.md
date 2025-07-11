@@ -1,4 +1,4 @@
-# 🗓️ Gitdate
+# <img src="./public/logo.png" height="24" width="24" /> Gitdate
 
 This lightweight Chrome extension displays the **creation date** of any public GitHub repository, directly in the sidebar of the repository page.
 
